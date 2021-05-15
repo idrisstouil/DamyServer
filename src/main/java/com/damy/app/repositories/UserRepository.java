@@ -1,6 +1,8 @@
 package com.damy.app.repositories;
 
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -33,4 +35,6 @@ public interface UserRepository extends PagingAndSortingRepository<UserEntity, L
 	@Query(value="SELECT * FROM users u WHERE (u.first_name LIKE %:search% OR u.last_name LIKE %:search%) AND u.email_verification_status = :status", nativeQuery=true)
 	Page<UserEntity> findAllUserByCriteria(Pageable pageableRequest, @Param("search") String search, @Param("status") int status);
 	
+	@Query(value="SELECT * FROM users u WHERE (u.role LIKE %:centre%)",nativeQuery=true)
+	List<UserEntity> findAllCentres( @Param("centre") String centre);
 }

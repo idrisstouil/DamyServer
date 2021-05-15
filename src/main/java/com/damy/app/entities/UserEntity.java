@@ -16,44 +16,49 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class UserEntity implements Serializable {
 
-	
 	private static final long serialVersionUID = -5763827745308343856L;
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String userId;
-	
-	@Column(nullable=false, length=50)
+
+	@Column(nullable = false, length = 50)
 	private String firstName;
-	
-	@Column(nullable=true, length=50)
+
+	@Column(nullable = true, length = 50)
 	private String lastName;
-	
-	@Column(nullable=false, length=120, unique=true)
+
+	@Column(nullable = false, length = 120, unique = true)
 	private String email;
-	
-	@Column(nullable=false, length=120, unique=true)
+
+	@Column(nullable = false, length = 120, unique = false)
 	private String city;
-	
-	@Column(nullable=false, length=120, unique=true)
+
+	@Column(nullable = false, length = 120, unique = false)
 	private String adress;
-	
-	@Column(nullable=true, length=120, unique=true)
+
+	@Column(nullable = true, length = 120, unique = true)
 	private String telephone;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String role;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String encryptedPassword;
+
+	@Column(nullable = true)
+	private String longitude;
+
+	@Column(nullable = true)
+	private String latitude;
+	
 	
 
 	public long getId() {
@@ -137,5 +142,21 @@ public class UserEntity implements Serializable {
 	}
 
 
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
 
 }
