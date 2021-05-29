@@ -112,10 +112,26 @@ public class UserSeviceImpl implements UserService {
 		UserEntity userEntity = userRepository.findByUserId(userId);
 		
 		if(userEntity == null) throw new UsernameNotFoundException(userId); 
-		
+		if(userDto.getFirstName()!=null)
 		userEntity.setFirstName(userDto.getFirstName());
+		
+		if(userDto.getLastName()!=null)
 		userEntity.setLastName(userDto.getLastName());
 		
+		if(userDto.getEmail()!=null)
+		userEntity.setEmail(userDto.getEmail());
+		
+		if(userDto.getPassword()!=null)
+		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+		
+		if(userDto.getAdress()!=null)
+		userEntity.setAdress(userDto.getAdress());
+		
+		if(userDto.getTelephone()!=null)
+		userEntity.setTelephone(userDto.getTelephone());
+		
+		if(userDto.getCity()!=null)
+		userEntity.setCity(userDto.getCity());
 		UserEntity userUpdated = userRepository.save(userEntity);
 		
 		UserDto user = new UserDto();
@@ -169,6 +185,24 @@ public class UserSeviceImpl implements UserService {
 		}
 		
 		return usersDto;
+	}
+
+
+	@Override
+	public List<UserDto> getAllUsers() {
+	Iterable<UserEntity> usersIterable =	userRepository.findAll();
+
+	List<UserEntity> users= new ArrayList<>();
+	usersIterable.forEach(users::add);
+	ModelMapper modelMapper = new ModelMapper();
+	List<UserDto> usersDto = new ArrayList<>();
+	for(UserEntity userEntity: users) {
+			
+		UserDto user = modelMapper.map(userEntity, UserDto.class);
+		
+		usersDto.add(user);
+	}
+	return usersDto;
 	}
 
 }

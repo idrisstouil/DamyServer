@@ -37,4 +37,4 @@ public interface UserRepository extends PagingAndSortingRepository<UserEntity, L
 	
 	@Query(value="SELECT * FROM users u WHERE (u.role LIKE %:centre%)",nativeQuery=true)
 	List<UserEntity> findAllCentres( @Param("centre") String centre);
-}
+} 

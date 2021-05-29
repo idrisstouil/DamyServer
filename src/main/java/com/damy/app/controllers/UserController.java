@@ -67,7 +67,23 @@ public class UserController {
 		return new ResponseEntity<List<UserResponse>>(usersResponse, HttpStatus.OK);
 	}
 	
-	
+	@GetMapping(path="/all")
+	public ResponseEntity<List<UserResponse>> getAllUsersAll() {
+		
+		List<UserResponse> usersResponse = new ArrayList<>();
+		
+		List<UserDto> users = userService.getAllUsers();
+		
+		for(UserDto userDto: users) {
+			
+			ModelMapper modelMapper = new ModelMapper();
+			UserResponse userResponse =  modelMapper.map(userDto, UserResponse.class);
+			
+			usersResponse.add(userResponse);
+		}
+		
+		return new ResponseEntity<List<UserResponse>>(usersResponse, HttpStatus.OK);
+	}
 	
 	@PostMapping()
 	public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) throws Exception {
