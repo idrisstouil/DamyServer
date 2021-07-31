@@ -60,6 +60,28 @@ public class UserEntity implements Serializable {
 	private String latitude;
 	
 	
+	@Column(nullable = true)
+	private String contact;
+	
+	@Column(nullable = true)
+	private String bloodType;
+	
+	
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getBloodType() {
+		return bloodType;
+	}
+
+	public void setBloodType(String bloodType) {
+		this.bloodType = bloodType;
+	}
 
 	public long getId() {
 		return id;

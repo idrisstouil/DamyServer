@@ -132,6 +132,13 @@ public class UserSeviceImpl implements UserService {
 		
 		if(userDto.getCity()!=null)
 		userEntity.setCity(userDto.getCity());
+		
+		if(userDto.getBloodType()!=null)
+		userEntity.setBloodType(userDto.getBloodType());
+		
+		if(userDto.getContact()!=null)
+		userEntity.setContact(userDto.getContact());
+		
 		UserEntity userUpdated = userRepository.save(userEntity);
 		
 		UserDto user = new UserDto();

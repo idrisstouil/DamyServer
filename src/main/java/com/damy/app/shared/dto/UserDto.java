@@ -22,7 +22,26 @@ public class UserDto implements Serializable {
 	private String adress;
 	private String telephone;
 private String longitude;
-	
+private String contact;
+
+private String bloodType;
+
+
+public String getContact() {
+	return contact;
+}
+
+public void setContact(String contact) {
+	this.contact = contact;
+}
+
+public String getBloodType() {
+	return bloodType;
+}
+
+public void setBloodType(String bloodType) {
+	this.bloodType = bloodType;
+}
 	
 	private String latitude;
 	

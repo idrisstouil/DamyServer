@@ -20,6 +20,26 @@ private String longitude;
 	
 	private String latitude;
 	
+private String contact;
+	
+	private String bloodType;
+	
+	
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getBloodType() {
+		return bloodType;
+	}
+
+	public void setBloodType(String bloodType) {
+		this.bloodType = bloodType;
+	}
 	
 	
 	public String getLongitude() {
