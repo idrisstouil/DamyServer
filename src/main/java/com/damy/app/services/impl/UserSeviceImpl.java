@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import com.damy.app.entities.UserEntity;
 import com.damy.app.repositories.UserRepository;
+import com.damy.app.services.EmailService;
 import com.damy.app.services.UserService;
 import com.damy.app.shared.Utils;
 import com.damy.app.shared.dto.UserDto;
@@ -39,6 +40,8 @@ public class UserSeviceImpl implements UserService {
 	@Autowired
 	Utils util;
 	
+	@Autowired
+	EmailService confMail;
 	
 	@Override
 	public UserDto createUser(UserDto user) {
@@ -60,7 +63,7 @@ public class UserSeviceImpl implements UserService {
 		UserEntity newUser = userRepository.save(userEntity);
 		
 		UserDto userDto =  modelMapper.map(newUser, UserDto.class);
-		
+		confMail.sendEmail(userDto);
 		return userDto;
 	}
 
