@@ -36,8 +36,8 @@ public class EmailServiceImpl implements EmailService {
 	        
 	        msg2.setTo("damysolution@gmail.com");
 
-	        msg2.setSubject(user.getFirstName()+" "+user.getLastName() +"a cree un compte");
-	        msg2.setText(user.getFirstName()+" "+user.getLastName() +"a cree un compte"
+	        msg2.setSubject(user.getFirstName()+" "+user.getLastName() +" a cree un compte");
+	        msg2.setText(" "+user.getFirstName()+" "+user.getLastName() +" a cree un compte"
 	        		+ "\n Nom:"+user.getFirstName()+""
 	        		+ "\n Prenom:"+user.getLastName()+""
 	        		+ "\n Ville:"+user.getCity()+""

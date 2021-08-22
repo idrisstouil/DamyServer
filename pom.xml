@@ -34,6 +34,12 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
 		<dependency>
@@ -67,11 +73,13 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+		
+	<!-- 	<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
+		
 		<!-- <dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
